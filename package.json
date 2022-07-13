@@ -1,0 +1,27 @@
+{
+  "name": "testa",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "converge": "vitest run --converge"
+  },
+  "dependencies": {
+    "pinia": "^2.0.16",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@pinia/testing": "^0.0.12",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vue/test-utils": "^2.0.2",
+    "jsdom": "^20.0.0",
+    "typescript": "^4.5.4",
+    "unocss": "^0.44.1",
+    "vite": "^2.9.9",
+    "vitest": "^0.18.0",
+    "vue-tsc": "^0.34.7"
+  }
+}
