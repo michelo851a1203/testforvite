@@ -10,8 +10,12 @@
     "converge": "vitest run --converge"
   },
   "dependencies": {
+    "@vee-validate/zod": "^4.6.1",
     "pinia": "^2.0.16",
-    "vue": "^3.2.25"
+    "vee-validate": "^4.6.1",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.13",
+    "zod": "^3.17.3"
   },
   "devDependencies": {
     "@pinia/testing": "^0.0.12",

@@ -1,3 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`mount component 1`] = `"<button class=\\"border-none bg-blue-300 rounded-md px-4 py-3\\">testClickHello - 0</button>"`;

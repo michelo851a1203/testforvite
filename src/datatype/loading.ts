@@ -1,0 +1,6 @@
+export enum LoadingStatus {
+  GET_TESTING_LIST,
+  ADD_TESTING,
+  UPDATE_TESTING,
+  DELETE_TESTING,
+}
