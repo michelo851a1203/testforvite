@@ -1,17 +1,5 @@
-```
-pnpm install -D vitest @vue/test-utils jsdom
-
-```
-- append new data to tsconfig.json
-
----
-
-```
-need to learn how to test pinia with vitest on this application here
-```
-
-- append this application
-
-```
-pnpm install -D @types/
-```
+#### main issue
+1. build vee-validate with zod
+2. build testing with pinia
+3. build suspense testing
+4. build vue-router testing

@@ -10,7 +10,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/Dashboard.vue'),
     children: [
       {
-        path: '/home',
+        path: '/',
         name: 'Home',
         component: () => import('../views/dashboard/Home.vue'),
       },
@@ -22,12 +22,12 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: 'catchAll(.*)',
+    path: '/catchAll(.*)',
     name: 'notFound',
     component: () => import('../views/Notfound.vue'),
   },
   {
-    path: '',
+    path: '/NetWorkError',
     name: 'NetworkError',
     component: () => import('../views/NetworkError.vue'),
   }

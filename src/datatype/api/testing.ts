@@ -1,7 +1,7 @@
 export interface CallTestingListApiResponseType {
   title: string;
   content: string;
-  status: boolean;
+  userStatus: boolean;
 }
 
 export interface AddTestingRequestType {
