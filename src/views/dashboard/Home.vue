@@ -2,12 +2,13 @@
   import { useField, useForm } from 'vee-validate';
   import { toFormValidator } from '@vee-validate/zod'
   import * as zod from 'zod';
+  import FormTextInput from '../../components/FormTextInput.vue';
 
   const validationSchema = toFormValidator(zod.object({
     title: zod.string({
       required_error: 'title is required',
       invalid_type_error: 'title should be string',
-    }),
+    }).min(1),
     content: zod.string({
       invalid_type_error: 'this must be string',
     }).nullable(),
@@ -28,6 +29,13 @@
     initialValue: '',
   });
 
+  const {
+    value: userEmail,
+    errorMessage: userEmailError,
+  } = useField('userEmail', undefined, {
+    initialValue: '',
+  })
+
   const { 
     value: content, 
     errorMessage: contentError 
@@ -46,49 +54,33 @@
     console.log(submitForm);
   });
 
+  const resetAllError = () => {
+    resetForm();
+  }
+
 </script>
 
 <template>
   <section 
     class="border min-h-[calc(80vh)] mt-8 rounded-xl px-10 py-8 space-y-8"
   >
-    <div class="flex items-center space-x-4">
-      <label for="input_one">Title</label>
-        <input 
-          v-model="title"
-          class="px-3 py-2 rounded-xl border border-gray-400 w-full focus:outline-none"
-          id="input_one"
-          type="text"
-        >
-    </div>
-    <div 
-      class="text-red-500"
-      v-if="titleError"
-    >
-      <small>
-        {{ titleError }}
-      </small>
-    </div>
+    <FormTextInput
+      labelTitle="Title"
+      v-model:inputText="title"
+      errorMessage="titleError"
+    ></FormTextInput>
 
-    <div class="flex items-center space-x-4">
-      <label for="input_two">Content</label>
-        <input 
-          v-model="content"
-          class="px-3 py-2 rounded-xl border border-gray-400 w-full focus:outline-none"
-          id="input_two"
-          type="text"
-        >
-    </div>
+    <FormTextInput
+      labelTitle="Content"
+      v-model:inputText="content"
+      errorMessage="contentError"
+    ></FormTextInput>
 
-    <div 
-      class="text-red-500"
-      v-if="contentError"
-    >
-      <small>
-        {{ contentError }}
-      </small>
-    </div>
-
+    <FormTextInput
+      labelTitle="email"
+      v-model:inputText="userEmail"
+      errorMessage="userEmailError"
+    ></FormTextInput>
 
     <div class="flex items-center space-x-4">
       <label for="input_three">UserStatus : </label>
@@ -125,9 +117,15 @@
     <div>
       <button
         @click="submitTesting"
-        class="px-4 py-3 rounded-xl bg-blue-300"
+        class="px-4 py-3 rounded-xl bg-blue-300 border-none"
       >
         submit
+      </button>
+      <button
+        @click="resetAllError"
+        class="px-4 py-3 rounded-xl bg-blue-300 border-none"
+      >
+        ResetForm
       </button>
     </div>
   
